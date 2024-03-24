@@ -1,0 +1,20 @@
+.main_header {
+    font-size: 200px;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(146, 2, 2);
+}
+
+.link:hover {
+    color: red;
+}
+
+
+@media (max-width: 588px) {
+    .main_header {
+        font-size: 60px;
+    }
+}

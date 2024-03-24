@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    top: 20px;
+    right: 10%;
+}
+
+.login_link {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.signin_link {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+.login_link:hover {
+    font-weight: bold;
+}
+
+.signin_link:hover {
+    font-weight: bold;
+}
+
+@media (max-width: 588px) {
+    .navbar {
+        right: 5%;
+    }
+}
