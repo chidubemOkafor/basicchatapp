@@ -1,0 +1,10 @@
+const express = require("express")
+const router = express.Router()
+const UserController = require("../controllers/UserController")
+
+
+router.post("/createAccount", UserController.CreateAccount)
+router.post("/login", UserController.Login)
+router.get("/getUsers/:userId", UserController.getUsers)
+
+module.exports = router
