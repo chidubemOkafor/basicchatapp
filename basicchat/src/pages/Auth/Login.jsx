@@ -12,7 +12,9 @@ const Login = () => {
         username: "",
         password: ""
     })
-    const url = "http://localhost:3001/api/v1"
+    const baseUrl = process.env.REACT_APP_API_URL;
+    console.log("this is the baseUrl", baseUrl)
+    const url = baseUrl
 
     const handleLogin = async (e) => {
         e.preventDefault()

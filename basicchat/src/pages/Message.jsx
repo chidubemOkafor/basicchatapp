@@ -1,7 +1,7 @@
 import './Message.css';
 import { useState, useEffect, useContext } from 'react';
 import io from "socket.io-client"
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://basicchatapp-4bi5.onrender.com:3001")
 import { accountData } from '../context/contexts';
 import axios from 'axios'
 import { FaSearch } from "react-icons/fa";
@@ -19,7 +19,6 @@ function Message() {
     const [showFriends, setShowFriends] = useState(false)
     const [showSearch, setShowSearch] = useState(false)
     const [showRoom, setShowRoom] = useState(false)
-    const [friendId, setFriendId] = useState("")
     const navigate = useNavigate()
     const [lonely, setlonely] = useState(false)
     const [recipientId, setRecipientId] = useState(null)
@@ -35,8 +34,9 @@ function Message() {
         username: ""
     })
     //==============================================================
-
-    const url = "http://localhost:3001/api/v1"
+    const baseUrl = process.env.REACT_APP_API_URL;
+    console.log("this is the baseUrl", baseUrl)
+    const url = baseUrl
     const userId = data._id
 
     const handleGetUser = async () => {

@@ -28,13 +28,13 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket) => {
-    console.log(`user connected: ${socket.id}`)
+    // console.log(`user connected: ${socket.id}`)
     socket.on("send_message", async({message, recipient_Id, userId}) => {
-        console.log("RECIPIENT ID",recipient_Id)
+        // console.log("RECIPIENT ID",recipient_Id)
         try {
             const recipient = await User.findOne({_id: recipient_Id})
-            console.log("THIS IS THE RECIPIENT SOCKET_id", (recipient.socket_id))
-            console.log(recipient)
+            // console.log("THIS IS THE RECIPIENT SOCKET_id", (recipient.socket_id))
+            // console.log(recipient)
             if(recipient) {
                     const newMessage = await Message.create({
                         message: message,
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
                     })  
                     if(recipient_Id === newMessage.recipient.toString() && userId === newMessage.sender.toString()) {
                         io.to(recipient.socket_id).emit("receive_message", { message: newMessage, socket_id: recipient.socket_id });
-                        console.log(`message: ${newMessage.message}; socket_Id: ${recipient.socket_id}; username: ${recipient.username}`)
+                        // console.log(`message: ${newMessage.message}; socket_Id: ${recipient.socket_id}; username: ${recipient.username}`)
                     }  
             }
         } catch (error) {
@@ -67,18 +67,18 @@ io.on("connection", (socket) => {
     })
 
     socket.on("authenticate",async ({userId}) => {
-        console.log(userId ? `'this is the' ${userId}` : "no userId")
+        // console.log(userId ? `'this is the' ${userId}` : "no userId")
         try {
 
             const user = await User.findById(userId)
-            console.log(user)
+            // console.log(user)
             if(user) {
                 user.socket_id = socket.id
                 await user.save()
-                console.log(user.socket_id)
+                // console.log(user.socket_id)
             }
             const user2 = await User.findById(userId)
-            console.log(user2)
+            // console.log(user2)
         } catch (error) {
             console.error(error)
         }
@@ -112,7 +112,7 @@ io.on("connection", (socket) => {
             if (user) {
                 user.socket_id = ""
                 await user.save()
-                console.log(user.socket_id)
+                // console.log(user.socket_id)
             }
         } catch(error) {
             console.error(error)
