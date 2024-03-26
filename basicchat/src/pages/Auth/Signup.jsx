@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 import { accountData } from '../../context/contexts'
 import { useNavigate } from 'react-router-dom'
 
-const socket = io.connect("https://basicchatapp-server.onrender.com:7007")
+const socket = io.connect("https://basicchatapp-4bi5.onrender.com:7007")
 
 const Signup = () => {
     const navigate = useNavigate()
