@@ -28,7 +28,7 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket) => {
-    // console.log(`user connected: ${socket.id}`)
+    console.log(`user connected: ${socket.id}`)
     socket.on("send_message", async({message, recipient_Id, userId}) => {
         // console.log("RECIPIENT ID",recipient_Id)
         try {
@@ -75,7 +75,7 @@ io.on("connection", (socket) => {
             if(user) {
                 user.socket_id = socket.id
                 await user.save()
-                // console.log(user.socket_id)
+                console.log(user.socket_id)
             }
             const user2 = await User.findById(userId)
             // console.log(user2)
@@ -112,7 +112,7 @@ io.on("connection", (socket) => {
             if (user) {
                 user.socket_id = ""
                 await user.save()
-                // console.log(user.socket_id)
+                console.log(user.socket_id)
             }
         } catch(error) {
             console.error(error)
