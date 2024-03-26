@@ -1,7 +1,7 @@
 import './Message.css';
 import { useState, useEffect, useContext } from 'react';
 import io from "socket.io-client"
-const socket = io.connect("https://basicchatapp-4bi5.onrender.com:3001")
+const socket = io.connect("https://basicchatapp-4bi5.onrender.com:7007")
 import { accountData } from '../context/contexts';
 import axios from 'axios'
 import { FaSearch } from "react-icons/fa";
