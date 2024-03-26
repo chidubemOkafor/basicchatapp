@@ -6,7 +6,7 @@ class MessageController {
             const {recipientId, userId} = req.params
             console.log(`userId: ${userId}; recipientId: ${recipientId}`)
             const messages = await Message.find({ $and: [{ sender: userId }, { recipient: recipientId }] })
-            console.log(messages)
+            console.log("message fetched")
             if(!messages) {
                 res.status(404).json({message: "chat history does not exist"})
             } 
