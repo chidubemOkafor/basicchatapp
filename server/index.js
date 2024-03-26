@@ -121,5 +121,5 @@ io.on("connection", (socket) => {
 })
 
 server.listen(7007, () => {
-    console.log("server listening on port: 3001")
+    console.log("server listening on port: 7007")
 })
