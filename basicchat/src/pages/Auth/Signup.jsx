@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 import { accountData } from '../../context/contexts'
 import { useNavigate } from 'react-router-dom'
 
-const socket = io("http://localhost:3001", {
+const socket = io("https://basicchatapp-server.onrender.com:7007", {
     reconnection: true,
     transports: ['websocket', 'polling']
 })
