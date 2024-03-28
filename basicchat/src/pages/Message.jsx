@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTimeHook } from '../context/useTimeHook';
 import { CiMenuKebab } from "react-icons/ci";
 
-const socket = io.connect(process.env.REACT_DEPLOYMENT_TYPE !== "production" ? "http://localhost:7007" : "https://basicchatapp-server.onrender.com")
+const socket = io.connect("https://basicchatapp-server.onrender.com")
 
 function Message() {
     const [yourFriends, setYourFriends] = useState([])
@@ -35,7 +35,7 @@ function Message() {
         username: ""
     })
     //==============================================================
-    const url = process.env.REACT_DEPLOYMENT_TYPE !== "production" ? "http://localhost:7007/api/v1" : "https://basicchatapp-server.onrender.com/api/v1"
+    const url = "https://basicchatapp-server.onrender.com/api/v1"
     const userId = data._id
 
     const handleGetUser = async () => {
