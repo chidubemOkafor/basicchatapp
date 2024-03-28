@@ -23,7 +23,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: process.env.DEPLOYMENT_TYPE == "production" ? "https://basicchatapp-frontend1.onrender.com/" : "http://localhost:3000",
+        origin: process.env.DEPLOYMENT_TYPE !== "production" ? "http://localhost:3000" : "https://basicchatapp-frontend1.onrender.com/",
         methods: ["GET", "POST"]
     }
 })
