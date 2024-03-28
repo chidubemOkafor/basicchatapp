@@ -9,6 +9,7 @@ const authentication = require("./routes/authentication")
 const userFriends = require("./routes/userFriends")
 const messages = require("./routes/message")
 const bodyParser = require("body-parser");
+require("dotenv").config()
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -22,7 +23,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: "https://basicchatapp-frontend1.onrender.com",
+        origin: process.env.DEPLOYMENT_TYPE == "production" ? "https://basicchatapp-frontend1.onrender.com/" : "http://localhost:3000",
         methods: ["GET", "POST"]
     }
 })

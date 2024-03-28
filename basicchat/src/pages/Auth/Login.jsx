@@ -12,9 +12,8 @@ const Login = () => {
         username: "",
         password: ""
     })
-    const baseUrl = process.env.REACT_APP_API_URL;
-    console.log("this is the baseUrl", baseUrl)
-    const url = baseUrl
+
+    const url = process.env.REACT_DEPLOYMENT_TYPE === "production" ? "https://basicchatapp-server.onrender.com/api/v1" : "http://localhost:7007/api/v1"
 
     const handleLogin = async (e) => {
         e.preventDefault()

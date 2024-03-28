@@ -5,14 +5,7 @@ import io from 'socket.io-client'
 import { accountData } from '../../context/contexts'
 import { useNavigate } from 'react-router-dom'
 
-const socket = io("https://basicchatapp-server.onrender.com:7007", {
-    reconnection: true,
-    transports: ['websocket', 'polling']
-})
-
-socket.on("connect", () => {
-    console.log("socket has been connected on react client")
-})
+const socket = io.connect(process.env.REACT_DEPLOYMENT_TYPE === "production" ? "https://basicchatapp-server.onrender.com" : "http://localhost:7007")
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -24,9 +17,7 @@ const Signup = () => {
         password: ""
     })
 
-    const baseUrl = process.env.REACT_APP_API_URL;
-    console.log("this is the baseUrl", baseUrl)
-    const url = baseUrl
+    const url = process.env.REACT_DEPLOYMENT_TYPE === "production" ? "https://basicchatapp-server.onrender.com/api/v1" : "http://localhost:7007/api/v1"
     const handleSignup = async (e) => {
         e.preventDefault()
         try {
