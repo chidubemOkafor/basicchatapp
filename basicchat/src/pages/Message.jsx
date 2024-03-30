@@ -59,7 +59,7 @@ function Message() {
 
     useEffect(() => {
         if (data._id === undefined) {
-            navigate('/login')
+            navigate('/')
         }
     })
 
