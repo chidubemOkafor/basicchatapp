@@ -1,5 +1,6 @@
 # BASIC CHAT
 This is social app where you can talk with your friends and family without the complications that comes with a normal social app
+this is the [Link](https://basicchatapp-frontend1.onrender.com)
 
 ## STEPS IN USING BASIC CHAT
 ### create an account
