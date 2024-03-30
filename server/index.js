@@ -23,7 +23,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: "https://basicchatapp-frontend1.onrender.com/",
+        origin: "https://basicchatapp-frontend1.onrender.com",
         methods: ["GET", "POST"]
     }
 })
